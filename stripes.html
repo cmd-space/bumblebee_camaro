@@ -11,8 +11,12 @@
 		<script>
 			$(document).ready(function(){
 				$('img').click(function(){
-					$(this).attr('src', 'swap-alt-src');
-						// $(this).attr('swap-alt-src');
+					var swap = $(this).attr('src');
+					$(this).attr('src', function(){
+						var source = $(this).attr('src');
+						$(this).attr('src', $(this).attr('data-alt-src'));
+						$(this).attr('data-alt-src', source);
+						// return $(this).attr('data-alt-src');
 					});
 				});
 			});
@@ -20,11 +24,11 @@
 	</head>
 	<body>
 		<div>
-			<img src='camaro/camaro.jpeg' alt='camaro' swap-alt-src='bumblebee/bumblebee.jpeg'>
-			<img src='camaro/camaro1.jpeg' alt='camaro' swap-alt-src='bumblebee/bumblebee1.jpeg'>
-			<img src='camaro/camaro2.jpeg' alt='camaro' swap-alt-src='bumblebee/bumblebee2.jpeg'>
-			<img src='camaro/camaro3.jpeg' alt='camaro' swap-alt-src='bumblebee/bumblebee3.jpeg'>
-			<img src='camaro/camaro4.jpeg' alt='camaro' swap-alt-src='bumblebee/bumblebee4.jpeg'>
+			<img src='camaro/camaro.jpeg' alt='camaro' data-alt-src='bumblebee/bumblebee.jpeg'>
+			<img src='camaro/camaro1.jpeg' alt='camaro' data-alt-src='bumblebee/bumblebee1.jpeg'>
+			<img src='camaro/camaro2.jpeg' alt='camaro' data-alt-src='bumblebee/bumblebee2.jpeg'>
+			<img src='camaro/camaro3.jpeg' alt='camaro' data-alt-src='bumblebee/bumblebee3.jpeg'>
+			<img src='camaro/camaro4.jpeg' alt='camaro' data-alt-src='bumblebee/bumblebee4.jpeg'>
 		</div>
 	</body>
 </html>
